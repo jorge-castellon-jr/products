@@ -25,24 +25,43 @@
         </a>
       </div>
     </div>
+    <div class="circle" :style="{'background-color':home.primary_color}"></div>
+    <div v-html="home.cta"></div>
+    <div v-html="home.body"></div>
   </div>
 </template>
 
 <script>
 import Logo from '~/components/Logo.vue'
+import homeJSON from '~/content/data/home.json'
 
 export default {
+  data () {
+    return {
+      home: homeJSON
+    }
+  },
   components: {
     Logo
   }
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+div {
+  margin: 20px auto;
+}
+.circle {
+  height: 25vw;
+  width: 25vw;
+  border-radius: 100%;
+}
+
 .container {
   margin: 0 auto;
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;

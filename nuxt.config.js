@@ -1,7 +1,7 @@
 import path from "path";
 /* eslint-disable */
 const glob = require('glob');
-// const config = require("./content/data/company.json")
+const config = require("./content/data/company.json")
 /* eslin-enable */
 const dynamicRoutes = getDynamicPaths({
   '/blog': 'content/blog-posts/*.md',
