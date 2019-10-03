@@ -1,0 +1,14 @@
+---
+label: Product Item
+hide_body: false
+fields:
+- type: text
+  name: title
+  label: title
+  config:
+    required: true
+  description: Enter title, needs to match filename for routing
+- type: file
+  name: product_image
+  label: product_image
+pages:

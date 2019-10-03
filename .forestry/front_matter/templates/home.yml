@@ -1,0 +1,28 @@
+---
+label: Home Page
+hide_body: true
+fields:
+- type: textarea
+  name: body
+  label: body
+  config:
+    wysiwyg: true
+    schema:
+      format: html-blocks
+- type: textarea
+  name: cta
+  config:
+    wysiwyg: true
+    schema:
+      format: html-blocks
+  label: Call to action
+- name: primary_color
+  type: color
+  config:
+    required: false
+    color_format: Hex
+  label: Primary Color
+  description: Choose primary color for website
+  default: "#B1BCBC"
+pages:
+- content/data/home.json

@@ -1,3 +1,12 @@
+import path from "path";
+/* eslint-disable */
+const glob = require('glob');
+// const config = require("./content/data/company.json")
+/* eslin-enable */
+const dynamicRoutes = getDynamicPaths({
+  '/blog': 'content/blog-posts/*.md',
+  '/page': 'content/pages/*.md',
+});
 
 export default {
   mode: 'universal',
@@ -58,5 +67,26 @@ export default {
     */
     extend (config, ctx) {
     }
+  },
+  generate: {
+    routes: dynamicRoutes
   }
+}
+
+/**
+ * Create an array of URLs from a list of files
+ * @param {*} urlFilepathTable
+ */
+
+/* referenced https://github.com/jake-101/bael-template */
+function getDynamicPaths(urlFilepathTable) {
+  return [].concat(
+    ...Object.keys(urlFilepathTable).map(url => {
+      const filepathGlob = urlFilepathTable[url];
+      const routes = glob
+        .sync(filepathGlob)
+        .map(filepath => `${url}/${path.basename(filepath, '.md')}`);
+      return routes
+    })
+  );
 }

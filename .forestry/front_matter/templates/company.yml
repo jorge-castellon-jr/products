@@ -1,0 +1,37 @@
+---
+label: Company
+hide_body: true
+fields:
+- type: text
+  name: company_name
+  label: Company Name
+- type: text
+  name: desc
+  label: Description
+- type: text
+  name: address
+  label: Address
+- name: phone_
+  type: boolean
+  label: Phone?
+- name: phone
+  type: text
+  config:
+    required: false
+  label: Phone
+  showOnly:
+    field: phone_
+    value: true
+- name: email_
+  type: boolean
+  label: Email?
+- name: email
+  type: text
+  config:
+    required: false
+  label: Email
+  showOnly:
+    field: email_
+    value: true
+pages:
+- content/data/company.json
