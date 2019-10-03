@@ -11,4 +11,3 @@ fields:
 - type: file
   name: product_image
   label: product_image
-pages:

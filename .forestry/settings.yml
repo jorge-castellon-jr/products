@@ -12,7 +12,7 @@ sections:
   create: documents
   match: "**/*"
   templates:
-  - products
+  - product-item
 - type: document
   path: content/data/home.json
   label: Home Page
