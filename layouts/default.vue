@@ -1,19 +1,24 @@
 <template>
   <div>
     <Header />
-    <nuxt />
-    <no-ssr><AgePopUp :products="products" /></no-ssr>
+    <b-container fluid>
+      <b-row>
+        <b-col cols="9" offset="3">
+          <nuxt  />
+          <ProductList v-show="this.$store.state.productsShow" :products="products" />
+        </b-col>
+      </b-row>
+    </b-container>
+    <client-only><AgePopUp /></client-only>
   </div>
 </template>
+
 <script>
 import Header from '~/components/Header.vue'
+import ProductList from '~/components/ProductList.vue'
 import AgePopUp from '~/components/AgePopUp.vue'
 
 export default {
-  components: {
-    Header,
-    AgePopUp
-  },
   data () {
     // create context via webpack to map over all products
     const allproducts = require.context("~/content/products/", true, /\.md$/)
@@ -22,23 +27,31 @@ export default {
       return allproducts(key)
     });
     return {
-      products,
-      showMe: false
+      products
     }
   },
-  methods: {
-  }
+  components: {
+    Header,
+    ProductList,
+    AgePopUp
+  },
+  transition (to, from) {
+      if (!from) { return 'slide-left' }
+      return +to.query.page < +from.query.page ? 'slide-right' : 'slide-left'
+  },
 }
 </script>
 
 <style>
-.container {
-  margin: 20px auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+.page-enter-active,
+.page-leave-active {
+  transition: all 1s;
+}
+.page-enter,
+.page-leave-to {
+    transition: all .5s;
+    opacity: 0;
+    transform: translate(-500px, 0);
 }
 html {
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',

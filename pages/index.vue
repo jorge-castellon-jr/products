@@ -1,24 +1,30 @@
 <template>
-  <div class="container">
-    <div class="circle" :style="{'background-color':home.primary_color}"></div>
-    <div v-html="home.cta"></div>
-    <div v-html="home.body"></div>
+  <div>
+    <!-- <HomeData /> -->
   </div>
 </template>
 
 <script>
-import homeJSON from '~/content/data/home.json'
+import HomeData from "~/components/HomeData.vue";
 
 export default {
-  data () {
-    return {
-      home: homeJSON,
-    }
-  },
+  components: {
+    HomeData
+  }
 }
 </script>
 
 <style lang="scss" scoped>
+.container {
+  margin-left: 400px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
 .circle {
   height: 25vw;
   width: 25vw;

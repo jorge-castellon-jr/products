@@ -8,27 +8,17 @@
                 </div>
             </b-card>
         </div>
-        <ProductList v-show="show" :products="products" />
     </div>
 </template>
 
 <script>
-import ProductList from '~/components/ProductList.vue'
+import { mapMutation, mapMutations } from 'vuex'
 
 export default {
-    props: {
-        products: {
-            type: Array,
-            required: true
-        }     
-    },
-    data() {
-        return {
-            show: this.checkCookie('over_21') ? true : false
+    created () {
+        if (this.checkCookie('over_21')) {
+            this.$store.commit('over21', true)
         }
-    },
-    components: {
-        ProductList
     },
     methods: {
         createCookie(name, value, days) {
@@ -43,7 +33,7 @@ export default {
             document.cookie = name + "=" + value + expires + "; path=/";
 
             this.removeId('age')
-            this.show = true
+            this.$store.commit('over21', true)
         },
         checkCookie( string ) {
             let re = new RegExp(string + "=([^;]+)"),
@@ -64,7 +54,7 @@ export default {
         closeTab() {
             alert("You have to be 21+ to view this site")
         }
-    }
+    },
 }
 </script>
 

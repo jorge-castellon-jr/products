@@ -1,23 +1,21 @@
 <template>
-    <section class="container">
-        <ul class="list">
-            <NuxtLink  
-                class="list__item"
-                v-for="product in products" 
-                :key="product.attributes.title" 
-                :to="`/product/${formatSlug(product.attributes.title)}`"
-            >
-                <li>
-                    <div class="hero_image">
+    <b-list-group>
+        <b-list-group-item
+            v-for="product in products" 
+            :key="product.attributes.title" 
+        >
+            <nuxt-link :to="`/product/${formatSlug(product.attributes.title)}`">
+                <b-row>
+                    <b-col cols="4" class="th__image">
                         <img :src="`/media/${product.attributes.product_image}`" :alt="product.attributes.title">
-                    </div>
-                    <div class="productList__info">
+                    </b-col>
+                    <b-col cols="8" class="th__product-info">
                         <h2>{{ product.attributes.title }}</h2>
-                    </div>
-                </li>
-            </NuxtLink>                  
-        </ul>
-    </section>                       
+                    </b-col>
+                </b-row>
+            </nuxt-link>
+        </b-list-group-item>
+    </b-list-group>                       
 </template>
 <script>
     export default {
@@ -57,20 +55,12 @@
 </script>
 
 <style lang="scss" scoped>
-.list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-
-    &__item {
-        width: 45%;
-        text-decoration: none;
-        list-style: none;
+.th {
+    &__image {
+        img {
+            width: 100%;
+            height: auto;
+        }
     }
 }
 </style>
-
-/* 
-TODO -- i would love to figure out how to show the md in the summary... 
-right now its just plaintext not sure how to target the loader to parse this
- */
