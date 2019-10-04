@@ -4,8 +4,7 @@ const glob = require('glob');
 const config = require("./content/data/company.json")
 /* eslin-enable */
 const dynamicRoutes = getDynamicPaths({
-  '/blog': 'content/blog-posts/*.md',
-  '/page': 'content/pages/*.md',
+  '/product': 'content/products/*.md',
 });
 
 export default {
@@ -66,6 +65,14 @@ export default {
     ** You can extend webpack config here
     */
     extend (config, ctx) {
+      config.module.rules.push(
+      {
+          test: /\.md$/,
+          loader: "frontmatter-markdown-loader",
+          include: [
+            path.resolve(__dirname, "content/products")
+          ]
+      })
     }
   },
   generate: {

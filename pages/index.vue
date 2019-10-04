@@ -1,59 +1,40 @@
 <template>
   <div class="container">
-    <div>
-      <logo />
-      <h1 class="title">
-        {{ company.company_name }}
-      </h1>
-      <h2 class="subtitle">
-        {{ company.desc }}
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >
-          {{ company.address }}
-        </a>
-        <a
-          v-if="company.phone_"
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          {{ company.phone }}
-        </a>
-        <a
-          v-if="company.email_"
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          {{ company.email }}
-        </a>
-      </div>
-    </div>
+    <Header />
     <div class="circle" :style="{'background-color':home.primary_color}"></div>
     <div v-html="home.cta"></div>
     <div v-html="home.body"></div>
+    <div>
+      <ProductList :products="products" />
+    </div>
   </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+import Header from '~/components/Header.vue'
 import homeJSON from '~/content/data/home.json'
-import companyJSON from '~/content/data/company.json'
+import ProductList from '~/components/ProductList.vue'
 
 export default {
   data () {
     return {
       home: homeJSON,
-      company: companyJSON
     }
   },
   components: {
-    Logo
+    Header,
+    ProductList
+  },
+  async asyncData () {
+    // create context via webpack to map over all products
+    const allproducts = await require.context("~/content/products/", true, /\.md$/)
+    const products =  allproducts.keys().map((key) => {
+      // give back the value of each product context
+      return allproducts(key)
+    });
+    return {
+      products
+    }
   }
 }
 </script>
@@ -76,27 +57,5 @@ div {
   justify-content: center;
   align-items: center;
   text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
 }
 </style>
