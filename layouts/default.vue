@@ -2,17 +2,17 @@
   <div>
     <Header />
     <nuxt />
-    <ProductList :products="products" />
+    <no-ssr><AgePopUp :products="products" /></no-ssr>
   </div>
 </template>
 <script>
 import Header from '~/components/Header.vue'
-import ProductList from '~/components/ProductList.vue'
+import AgePopUp from '~/components/AgePopUp.vue'
 
 export default {
   components: {
     Header,
-    ProductList
+    AgePopUp
   },
   data () {
     // create context via webpack to map over all products
@@ -22,8 +22,11 @@ export default {
       return allproducts(key)
     });
     return {
-      products
+      products,
+      showMe: false
     }
+  },
+  methods: {
   }
 }
 </script>

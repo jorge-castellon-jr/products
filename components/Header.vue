@@ -12,23 +12,20 @@
       <div class="links">
         <a
           :href="`https://www.google.com/maps/search/${decodeURI( company.address )}`"
-          target="_blank"
           class="button--green"
         >
           {{ company.address }}
         </a>
         <a
           v-if="company.phone_"
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
+          :href="`tel:${company.phone}`"
           class="button--grey"
         >
           {{ company.phone }}
         </a>
         <a
           v-if="company.email_"
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
+          :href="`mailto:${company.email}`"
           class="button--grey"
         >
           {{ company.email }}
