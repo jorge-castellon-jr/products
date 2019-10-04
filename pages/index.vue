@@ -3,10 +3,10 @@
     <div>
       <logo />
       <h1 class="title">
-        products
+        {{ company.company_name }}
       </h1>
       <h2 class="subtitle">
-        My extraordinary Nuxt.js project
+        {{ company.desc }}
       </h2>
       <div class="links">
         <a
@@ -14,14 +14,23 @@
           target="_blank"
           class="button--green"
         >
-          Documentation
+          {{ company.address }}
         </a>
         <a
+          v-if="company.phone_"
           href="https://github.com/nuxt/nuxt.js"
           target="_blank"
           class="button--grey"
         >
-          GitHub
+          {{ company.phone }}
+        </a>
+        <a
+          v-if="company.email_"
+          href="https://github.com/nuxt/nuxt.js"
+          target="_blank"
+          class="button--grey"
+        >
+          {{ company.email }}
         </a>
       </div>
     </div>
@@ -34,11 +43,13 @@
 <script>
 import Logo from '~/components/Logo.vue'
 import homeJSON from '~/content/data/home.json'
+import companyJSON from '~/content/data/company.json'
 
 export default {
   data () {
     return {
-      home: homeJSON
+      home: homeJSON,
+      company: companyJSON
     }
   },
   components: {
