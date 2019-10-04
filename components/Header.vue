@@ -1,9 +1,11 @@
 <template>
-    <div>
+    <div class="container">
       <Logo />
-      <h1 class="title">
-        {{ company.company_name }}
-      </h1>
+      <nuxt-link to="/">
+        <h1 class="title">
+          {{ company.company_name }}
+        </h1>
+      </nuxt-link>
       <h2 class="subtitle">
         {{ company.desc }}
       </h2>

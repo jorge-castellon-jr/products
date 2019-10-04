@@ -1,19 +1,18 @@
 <template>
-    <section>
+    <section class="container">
         <ul class="list">
             <NuxtLink  
-                v-for="product in sortedproducts" 
+                class="list__item"
+                v-for="product in products" 
                 :key="product.attributes.title" 
                 :to="`/product/${formatSlug(product.attributes.title)}`"
             >
                 <li>
                     <div class="hero_image">
-                        <img :src="`/media/${product.attributes.hero_image}`" :alt="product.attributes.title">
+                        <img :src="`/media/${product.attributes.product_image}`" :alt="product.attributes.title">
                     </div>
                     <div class="productList__info">
                         <h2>{{ product.attributes.title }}</h2>
-                        <h3>{{ formatDate(product.attributes.date) }}</h3>
-                        <p>{{ formatExcerpt(product.body) }}...</p>
                     </div>
                 </li>
             </NuxtLink>                  
@@ -32,8 +31,8 @@
             sortedproducts() {
                 const sortedproducts = this.products
                 sortedproducts.sort((a,b) => {
-                    const dateA = new Date(a.attributes.date);
-                    const dateB = new Date(b.attributes.date);
+                    const dateA = new Date(a.attributes.title);
+                    const dateB = new Date(b.attributes.title);
                     if (dateA < dateB) {
                         return 1;
                     }
@@ -46,9 +45,6 @@
             }
         },
         methods: {
-            formatDate(date) {
-                return new Date(date).toDateString().slice(4)
-            }, 
             formatExcerpt(body) {
                 return body.slice(0 , 200).trimEnd()
             }, 
@@ -59,6 +55,20 @@
         }
     }
 </script>
+
+<style lang="scss" scoped>
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    &__item {
+        width: 45%;
+        text-decoration: none;
+        list-style: none;
+    }
+}
+</style>
 
 /* 
 TODO -- i would love to figure out how to show the md in the summary... 

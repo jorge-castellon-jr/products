@@ -1,10 +1,42 @@
 <template>
   <div>
+    <Header />
     <nuxt />
+    <ProductList :products="products" />
   </div>
 </template>
+<script>
+import Header from '~/components/Header.vue'
+import ProductList from '~/components/ProductList.vue'
+
+export default {
+  components: {
+    Header,
+    ProductList
+  },
+  data () {
+    // create context via webpack to map over all products
+    const allproducts = require.context("~/content/products/", true, /\.md$/)
+    const products =  allproducts.keys().map((key) => {
+      // give back the value of each product context
+      return allproducts(key)
+    });
+    return {
+      products
+    }
+  }
+}
+</script>
 
 <style>
+.container {
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
 html {
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     Roboto, 'Helvetica Neue', Arial, sans-serif;
