@@ -2,8 +2,8 @@
   "company_name": "Testicals",
   "desc": "And balls are all the craze",
   "address": "1234 Testing Lane, Sacramento, CA 98765",
-  "phone_": false,
-  "phone": "",
+  "phone_": true,
+  "phone": "9165822335",
   "email_": false,
   "email": ""
 }
