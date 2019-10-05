@@ -2,13 +2,11 @@
 label: Home Page
 hide_body: true
 fields:
-- type: textarea
-  name: body
-  label: body
+- name: hero_image
+  type: file
   config:
-    wysiwyg: true
-    schema:
-      format: html-blocks
+    maxSize: 250
+  label: Hero Image
 - type: textarea
   name: cta
   config:
@@ -16,6 +14,13 @@ fields:
     schema:
       format: html-blocks
   label: Call to action
+- type: textarea
+  name: body
+  label: body
+  config:
+    wysiwyg: true
+    schema:
+      format: html-blocks
 - name: primary_color
   type: color
   config:
