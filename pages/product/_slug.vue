@@ -3,7 +3,7 @@
 <template>
   <article class="product container">
       <figure class="product__hero">
-          <img :src="`/media/${product.attributes.product_image}`" :alt="product.attributes.title">
+          <img :src="`/media${product.attributes.product_image}`" :alt="product.attributes.title">
       </figure>
     <div class="product__info" >
       <h1>{{ product.attributes.title }}</h1>

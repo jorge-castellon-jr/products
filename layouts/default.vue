@@ -4,6 +4,7 @@
     <b-container fluid class="th__content">
       <nuxt  />
       <ProductList v-show="this.$store.state.productsShow" :products="products" />
+      <Footer />
     </b-container>
     <client-only><AgePopUp /></client-only>
   </div>
@@ -11,6 +12,7 @@
 
 <script>
 import Header from '~/components/Header.vue'
+import Footer from '~/components/Footer.vue'
 import ProductList from '~/components/ProductList.vue'
 import AgePopUp from '~/components/AgePopUp.vue'
 
@@ -28,6 +30,7 @@ export default {
   },
   components: {
     Header,
+    Footer,
     ProductList,
     AgePopUp
   },

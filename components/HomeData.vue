@@ -1,7 +1,7 @@
 <template>
   <b-row align-h="center" class="th__hero">
     <b-col cols="8">
-      <b-img class="th__img" :src="`/media/${home.hero_image}`" fluid-grow></b-img>
+      <b-img class="th__img" :src="`/media${home.hero_image}`" fluid-grow></b-img>
       <b-row class="th__hero-text">
         <h1 v-html="home.cta"></h1>
         <div v-html="home.body"></div>

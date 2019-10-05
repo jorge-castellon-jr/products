@@ -2,7 +2,7 @@
     <b-container class="th__header">
         <b-row align-h="center">
           <nuxt-link to="/" class="th__brand" >
-            <img :src="`/media/${company.logo}`" />
+            <img :src="`/media${company.logo}`" />
           </nuxt-link>
           <div class="th__brand-line" :style="`background: ${home.primary_color}`"></div>
         </b-row>

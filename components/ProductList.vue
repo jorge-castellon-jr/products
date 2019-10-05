@@ -1,21 +1,19 @@
 <template>
-    <b-list-group>
-        <b-list-group-item
-            v-for="product in products" 
-            :key="product.attributes.title" 
-        >
-            <nuxt-link :to="`/product/${formatSlug(product.attributes.title)}`">
-                <b-row>
-                    <b-col cols="4" class="th__image">
-                        <img :src="`/media/${product.attributes.product_image}`" :alt="product.attributes.title">
-                    </b-col>
-                    <b-col cols="8" class="th__product-info">
-                        <h2>{{ product.attributes.title }}</h2>
-                    </b-col>
-                </b-row>
-            </nuxt-link>
-        </b-list-group-item>
-    </b-list-group>                       
+    <b-row align-h="center">
+        <b-col cols="10">
+            <b-card-group deck class="th__card-group">
+                <b-card
+                    v-for="product in products" 
+                    :key="product.attributes.title"
+                    :title="product.attributes.title"
+                    img-top
+                    :img-src="`/media${product.attributes.product_image}`" 
+                >
+                    <nuxt-link class="th__link" :to="`/product/${formatSlug(product.attributes.title)}`"></nuxt-link>
+                </b-card>
+            </b-card-group>
+        </b-col>
+    </b-row>              
 </template>
 <script>
     export default {
@@ -56,6 +54,10 @@
 
 <style lang="scss" scoped>
 .th {
+    &__card-group .card {
+        flex: 1 0 20%;
+        margin-bottom: 40px;
+    }
     &__image {
         img {
             width: 100%;
@@ -65,6 +67,17 @@
     &__product-info {
         h2 {
             font-family: corner-store-jf,sans-serif;
+        }
+    }
+    &__link {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        transition: box-shadow .3s;
+        &:hover {
+            box-shadow: 6px 3px 20px rgba(0, 0, 0, .24);
         }
     }
 }
