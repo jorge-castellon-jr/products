@@ -12,6 +12,7 @@ fields:
   name: product_image
   label: product_image
 pages:
+- content/products/orange-cookies-1.md
 - content/products/orange-cookies.md
 - content/products/sugar-cookies.md
 - content/products/sour-skittles.md
