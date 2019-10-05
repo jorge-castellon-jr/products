@@ -62,5 +62,10 @@
             height: auto;
         }
     }
+    &__product-info {
+        h2 {
+            font-family: corner-store-jf,sans-serif;
+        }
+    }
 }
 </style>
