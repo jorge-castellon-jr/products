@@ -1,16 +1,30 @@
 <template>
     <b-row align-h="center">
         <b-col cols="10">
-            <b-card-group deck class="th__card-group">
-                <b-card
-                    v-for="product in products" 
-                    :key="product.attributes.title"
-                    :title="product.attributes.title"
-                    img-top
-                    :img-src="`/media${product.attributes.product_image}`" 
-                >
-                    <nuxt-link class="th__link" :to="`/product/${formatSlug(product.attributes.title)}`"></nuxt-link>
-                </b-card>
+            <b-input-group prepend="Search" class="th__input-group">
+                <b-form-input v-model="query" placeholder="Enter product name here ..."></b-form-input>
+            </b-input-group>
+            <b-card-group deck>
+                <transition-group 
+                    name="product-list"
+                    tag="div"
+                    :css="false"
+                    @before-enter="beforeEnter"
+                    @enter="enter"
+                    @leave="leave"
+                    class="th__card-group"
+                    >
+                    <b-card
+                        v-for="(item, index) in computedList" 
+                        :key="item.attributes.title"
+                        :data-index="index"
+                        :title="item.attributes.title"
+                        img-top
+                        :img-src="`/media${item.attributes.product_image}`" 
+                    >
+                        <nuxt-link class="th__link" :to="`/product/${formatSlug(item.attributes.title)}`"></nuxt-link>
+                    </b-card>
+                </transition-group>
             </b-card-group>
         </b-col>
     </b-row>              
@@ -22,22 +36,33 @@
                 type: Array,
                 required: true
             }        
-        }, 
+        },
+        data () {
+            return {
+                query: ''
+            }
+        },
         computed: {
-            sortedproducts() {
-                const sortedproducts = this.products
-                sortedproducts.sort((a,b) => {
-                    const dateA = new Date(a.attributes.title);
-                    const dateB = new Date(b.attributes.title);
-                    if (dateA < dateB) {
-                        return 1;
-                    }
-                    if (dateA > dateB) {
-                        return -1;
-                    }
-                    return 0;
+            // sortedProducts() {
+            //     const sortedProducts = this.products
+            //     sortedProducts.sort((a,b) => {
+            //         const dateA = new Date(a.attributes.title);
+            //         const dateB = new Date(b.attributes.title);
+            //         if (dateA < dateB) {
+            //             return 1;
+            //         }
+            //         if (dateA > dateB) {
+            //             return -1;
+            //         }
+            //         return 0;
+            //     })
+            //     return sortedProducts
+            // },
+            computedList() {
+                var vm = this
+                return this.products.filter(function (item) {
+                    return item.attributes.title.toLowerCase().indexOf(vm.query.toLowerCase()) !== -1
                 })
-                return sortedproducts
             }
         },
         methods: {
@@ -47,6 +72,30 @@
             formatSlug(title) {
                 const regex = / /gi;
                 return title.toLowerCase().trim().replace(regex, "-")
+            },
+            beforeEnter: function (el) {
+                el.style.opacity = 0
+                el.style.height = 0
+            },
+            enter: function (el, done) {
+                var delay = el.dataset.index * 150
+                setTimeout(function () {
+                    Velocity(
+                    el,
+                    { opacity: 1, height: '1.6em' },
+                    { complete: done }
+                    )
+                }, delay)
+            },
+            leave: function (el, done) {
+                var delay = el.dataset.index * 150
+                setTimeout(function () {
+                    Velocity(
+                    el,
+                    { opacity: 0, height: 0 },
+                    { complete: done }
+                    )
+                }, delay)
             }
         }
     }
@@ -54,9 +103,16 @@
 
 <style lang="scss" scoped>
 .th {
-    &__card-group .card {
-        flex: 1 0 20%;
-        margin-bottom: 40px;
+    &__input-group {
+        margin-bottom: 24px;
+    }
+    &__card-group {
+        display: flex;
+        flex-flow: row wrap;
+        .card {
+            flex: 1 0 20%;
+            margin-bottom: 40px;
+        }
     }
     &__image {
         img {
