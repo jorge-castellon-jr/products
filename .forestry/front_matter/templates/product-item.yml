@@ -12,6 +12,7 @@ fields:
   name: product_image
   label: product_image
 pages:
+- content/products/mimosa.md
 - content/products/animal-mints.md
 - content/products/orange-cookies.md
 - content/products/sugar-cookies.md
