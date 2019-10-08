@@ -30,7 +30,10 @@ fields:
     default: []
     config:
       required: true
-      options: []
+      options:
+      - oz
+      - lb
+      - each
       source:
         type: simple
         section: 
