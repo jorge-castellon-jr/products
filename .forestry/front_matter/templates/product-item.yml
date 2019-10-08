@@ -40,6 +40,12 @@ fields:
         file: 
         path: 
     label: Unit
+  - name: test
+    type: text
+    config:
+      required: false
+    hidden: true
+    label: test
   config:
     min: 
     max: 
