@@ -2,6 +2,8 @@
 title: Sugar Cookies
 product_image: "/Sugar_Cookies.jpg"
 prices:
+- price: 40
+  unit: 1/2 oz
 - price: 8
   unit: 1/8 oz
   test: ''
