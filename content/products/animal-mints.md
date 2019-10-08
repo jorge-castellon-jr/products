@@ -2,8 +2,6 @@
 title: Animal Mints
 product_image: "/Animal_Mint.jpg"
 prices:
-- price: 8
-  unit: 1/8 oz
 - price: 12
   unit: 1/4 oz
   test: ''
