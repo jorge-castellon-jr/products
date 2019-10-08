@@ -1,10 +1,11 @@
 <template>
+<b-container>
     <b-row align-h="center">
-        <b-col cols="10">
+        <b-col lg="10">
             <b-input-group prepend="Search" class="th__input-group">
                 <b-form-input v-model="query" placeholder="Enter product name here ..."></b-form-input>
             </b-input-group>
-            <b-card-group deck>
+            <b-card-group deck >
                 <transition-group 
                     name="product-list"
                     tag="div"
@@ -20,14 +21,15 @@
                         :data-index="index"
                         :title="item.attributes.title"
                         img-top
-                        :img-src="`/media${item.attributes.product_image}`" 
+                        :img-src="`/media${item.attributes.product_image}`"
                     >
                         <nuxt-link class="th__link" :to="`/product/${formatSlug(item.attributes.title)}`"></nuxt-link>
                     </b-card>
                 </transition-group>
             </b-card-group>
         </b-col>
-    </b-row>              
+    </b-row>  
+</b-container>            
 </template>
 <script>
     export default {
@@ -73,27 +75,31 @@
                 const regex = / /gi;
                 return title.toLowerCase().trim().replace(regex, "-")
             },
-            beforeEnter: function (el) {
+            beforeEnter (el) {
                 el.style.opacity = 0
-                el.style.height = 0
+                el.style.width = '100px'
+                el.style.transform = 'scaleX(0) scaleY(0)'
+                console.log(el.style)
             },
-            enter: function (el, done) {
+            enter (el, done) {
                 var delay = el.dataset.index * 150
                 setTimeout(function () {
+                    Velocity.hook(el, 'scaleX', 0)
+                    Velocity.hook(el, 'scaleY', 0)
                     Velocity(
-                    el,
-                    { opacity: 1, height: '1.6em' },
-                    { complete: done }
+                        el,
+                        { opacity: 1, scaleX: 1, scaleY: 1, width: '25%'},
+                        { complete: done }
                     )
                 }, delay)
             },
-            leave: function (el, done) {
+            leave (el, done) {
                 var delay = el.dataset.index * 150
                 setTimeout(function () {
                     Velocity(
-                    el,
-                    { opacity: 0, height: 0 },
-                    { complete: done }
+                        el,
+                        { width: 0, scaleX: 0, scaleY: 0, opacity: 0 },
+                        { complete: done }
                     )
                 }, delay)
             }
@@ -107,18 +113,36 @@
         margin-bottom: 24px;
     }
     &__card-group {
+        width: 100%;
         display: flex;
         flex-flow: row wrap;
         .card {
-            flex: 1 0 20%;
+            flex: 1 0 auto;
+            transform-origin: left;
+            float: left;
+            max-width: calc(50% - 10px);
             margin-bottom: 40px;
+            
+            img {
+                flex: 1 1 auto;
+                object-fit: cover;
+            }
+            .card-body {
+                flex: none;
+            }
+
+            @media only screen and (min-width: 576px) {
+                max-width: calc(50% - 30px);
+            }
+            @media only screen and (min-width: 768px) {
+                max-width: calc(25% - 30px);
+            }
+        }
+        @media only screen and (max-width: 768px) {
+            justify-content: space-between;
         }
     }
     &__image {
-        img {
-            width: 100%;
-            height: auto;
-        }
     }
     &__product-info {
         h2 {

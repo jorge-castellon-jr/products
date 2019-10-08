@@ -1,18 +1,26 @@
 <template>
+<b-container>
   <b-row align-h="center" class="th__hero">
-    <b-col cols="8">
-      <b-img class="th__img" :src="`/media${home.hero_image}`" fluid-grow></b-img>
+    <b-col cols="12" lg="10">
+      <b-img-lazy class="th__img" :src="`/media${home.hero_image}`" fluid-grow></b-img-lazy>
       <b-row class="th__hero-text">
         <h1 v-html="home.cta"></h1>
         <div v-html="home.body"></div>
       </b-row>
       <b-row class="th__btn-group">
-        <b-button variant="primary" :style="`background: ${home.primary_color}; border-color: ${home.primary_color}`" v-if="company.phone_" :href="`tel:${company.phone}`">Call</b-button>
-        <b-button variant="outline-dark" v-if="company.email_" :href="`mailto:${company.email}`">Email</b-button>
-        <b-button variant="outline-dark" :href="`https://www.google.com/maps/search/${decodeURI( company.address )}`">Get Directions</b-button>
+        <b-col v-if="company.phone_">
+          <b-button variant="primary" :style="`background: ${home.primary_color}; border-color: ${home.primary_color}`" :href="`tel:${company.phone}`">Call</b-button>
+        </b-col>
+        <b-col v-if="company.email_">
+          <b-button variant="outline-dark" :href="`mailto:${company.email}`">Email</b-button>
+        </b-col>
+        <b-col>
+          <b-button variant="outline-dark" :href="`https://www.google.com/maps/search/${decodeURI( company.address )}`">Get Directions</b-button>
+        </b-col>
       </b-row>
     </b-col>
   </b-row>
+</b-container>
 </template>
 
 <script>
@@ -58,8 +66,12 @@ export default {
   }
   &__btn-group {
     justify-content: space-around;
-    max-width: 80%;
+    // max-width: 80%;
     margin: 0 auto;
+    .col {
+      justify-content: center;
+      display: flex;
+    }
     a {
       margin: 10px;
       min-width: 150px;

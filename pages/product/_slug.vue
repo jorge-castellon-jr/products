@@ -3,14 +3,14 @@
 <template>
     <b-container class="th__product">
         <b-row align-v="center">
-            <b-col cols="6">
+            <b-col sm="12" md="6">
                 <b-img-lazy fluid-grow :src="`/media${product.attributes.product_image}`" :alt="product.attributes.title"></b-img-lazy>
             </b-col>
-            <b-col cols="6">
+            <b-col sm="12" md="6">
                 <h1>{{ product.attributes.title }}</h1>
                 <b-row v-if="product.attributes.prices">
                     <b-col v-for="price in product.attributes.prices" :key="price">
-                        <h4><strong>${{ price.price }}</strong> ({{ price.unit }})</h4>
+                        <h4 class="th__product-price"><strong>${{ price.price }}</strong><span>({{ price.unit }})</span></h4>
                     </b-col>
                 </b-row>
                 <div class="th__product-body" v-html="product.html"></div>
@@ -92,8 +92,20 @@
         padding-top: 24px;
         margin-bottom: 24px;
 
-        &-body {
-
+        &-price {
+            display: flex;
+            flex-direction: column;
+            span {
+                font-size: 16px;
+            }
+            
+            @media only screen and (min-width: 576px) {
+                flex-direction: row;
+                span {
+                    padding-left: 12px;
+                    white-space: nowrap;
+                }
+            }
         }
     }
 }
