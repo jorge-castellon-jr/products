@@ -32,24 +32,20 @@ fields:
       required: true
       options:
       - oz
-      - lb
       - each
+      - 1/2 oz
+      - 1/8 oz
+      - 1/4 oz
       source:
         type: simple
         section: 
         file: 
         path: 
     label: Unit
-  - name: test
-    type: text
-    config:
-      required: false
-    hidden: true
-    label: test
   config:
     min: 
     max: 
-    labelField: 
+    labelField: unit
   label: Prices
 pages:
 - content/products/strawberry-avalanche.md
