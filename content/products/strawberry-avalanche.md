@@ -1,6 +1,14 @@
 ---
 title: Strawberry Avalanche
 product_image: "/37342.jpg"
+prices:
+- price: 8
+  unit: 1/8 oz
+- price: 12
+  unit: 1/4 oz
+  test: ''
+- price: 40
+  unit: 1/2 oz
 
 ---
 This is a world of dreams and reverie  
@@ -11,25 +19,3 @@ And I stared back breathlessly
 As mountains of fruit tumbled out  
 I barely had the chance to shout  
 A strawberry avalanche crashed over me
-
-Staying awake that night was rather hard  
-Deep in a sleeping bag in your backyard  
-When we woke up buried alive  
-Beneath a fruity landslide  
-We both laughed hysterically  
-It could have been just another dream  
-But I swear I heard you scream  
-A strawberry avalanche crashed over me
-
-Always a citrus constellation in the galaxy  
-Scratched on the back of both my eyelids  
-And I've been dying to see  
-If you were a beautiful sound  
-In the echoes all around  
-Then I'd be your harmony  
-And we'd sing along with the crowds  
-Beneath the candy-coated clouds  
-A strawberry avalanche, please crash over me
-
-This is a world of dreams and reverie  
-Where I felt the stars explode around me

@@ -4,7 +4,6 @@ product_image: "/Sugar_Cookies.jpg"
 prices:
 - price: 8
   unit: 1/8 oz
-  test: ''
 - price: 12
   unit: 1/4 oz
   test: ''

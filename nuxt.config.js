@@ -22,12 +22,15 @@ export default {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Montserrat|Open+Sans&display=swap' }
+    ],
+    script: [
+      { src: 'https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js', defer: true}
     ]
   },
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#fff' },
+  loading: { color: '#000', },
   /*
   ** Global CSS
   */

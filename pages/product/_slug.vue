@@ -1,27 +1,22 @@
 // this is a dynamically created template
 
 <template>
-  <article class="product container">
-      <figure class="product__hero">
-          <img :src="`/media${product.attributes.product_image}`" :alt="product.attributes.title">
-      </figure>
-    <div class="product__info" >
-      <h1>{{ product.attributes.title }}</h1>
-    </div>
-    <div class="product__body" v-html="product.html"></div>
-    <div class="product__footer">
-      <NuxtLink :to="`/product/${prevProductPath}`" class="arrow">
-        <svg xmlns="http://www.w3.org/2000/svg"  version="1.1" x="0px" y="0px" viewBox="0 0 26 26" enableBackground="new 0 0 26 26"  transform="scale(-1,1)">
-          <path d="M23.021,12.294l-8.714-8.715l-1.414,1.414l7.007,7.008H2.687v2h17.213l-7.007,7.006l1.414,1.414l8.714-8.713  C23.411,13.317,23.411,12.685,23.021,12.294z"/>
-        </svg>
-      </NuxtLink>
-      <NuxtLink :to="`/product/${nextProductPath}`" class="arrow">
-        <svg xmlns="http://www.w3.org/2000/svg"  version="1.1" x="0px" y="0px" viewBox="0 0 26 26" enableBackground="new 0 0 26 26">
-          <path d="M23.021,12.294l-8.714-8.715l-1.414,1.414l7.007,7.008H2.687v2h17.213l-7.007,7.006l1.414,1.414l8.714-8.713  C23.411,13.317,23.411,12.685,23.021,12.294z"/>
-        </svg>
-      </NuxtLink>
-    </div>
-  </article>
+    <b-container class="th__product">
+        <b-row align-v="center">
+            <b-col cols="6">
+                <b-img-lazy fluid-grow :src="`/media${product.attributes.product_image}`" :alt="product.attributes.title"></b-img-lazy>
+            </b-col>
+            <b-col cols="6">
+                <h1>{{ product.attributes.title }}</h1>
+                <b-row v-if="product.attributes.prices">
+                    <b-col v-for="price in product.attributes.prices" :key="price">
+                        <h4><strong>${{ price.price }}</strong> ({{ price.unit }})</h4>
+                    </b-col>
+                </b-row>
+                <div class="th__product-body" v-html="product.html"></div>
+            </b-col>
+        </b-row>
+    </b-container>
 </template>
 <script>
     export default {
@@ -92,12 +87,14 @@
 </script>
 
 <style lang="scss" scoped>
-.product__footer {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-}
-.arrow {
-    width: 100px;
+.th {
+    &__product {
+        padding-top: 24px;
+        margin-bottom: 24px;
+
+        &-body {
+
+        }
+    }
 }
 </style>
