@@ -11,6 +11,37 @@ fields:
 - type: file
   name: product_image
   label: product_image
+- name: prices
+  type: field_group_list
+  fields:
+  - name: price
+    type: number
+    label: Price
+    description: ''
+    default: 0
+    required: true
+    config:
+      min: 
+      max: 
+      step: 
+      required: true
+  - name: unit
+    type: select
+    default: []
+    config:
+      required: true
+      options: []
+      source:
+        type: simple
+        section: 
+        file: 
+        path: 
+    label: Unit
+  config:
+    min: 
+    max: 
+    labelField: 
+  label: Prices
 pages:
 - content/products/strawberry-avalanche.md
 - content/products/sterling-creek-og.md
