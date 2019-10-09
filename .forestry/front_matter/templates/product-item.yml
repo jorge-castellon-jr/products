@@ -55,6 +55,8 @@ fields:
     options:
     - Hybrid
     - Indica
+    - Sativa
+    - Edible
     source:
       type: simple
       section: 
