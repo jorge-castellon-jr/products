@@ -47,6 +47,20 @@ fields:
     max: 
     labelField: unit
   label: Prices
+- name: type
+  type: select
+  default: []
+  config:
+    required: false
+    options:
+    - Hybrid
+    - Indica
+    source:
+      type: simple
+      section: 
+      file: 
+      path: 
+  label: Type
 pages:
 - content/products/mimosa.md
 - content/products/animal-mints.md
