@@ -2,5 +2,16 @@
   "body": "<p>THC Sativa euphoric resinated dome piece. Extremely dope chronic eye drops in the basement with psychedelic nugs.</p>",
   "cta": "The best CBD/THC Company In Town",
   "primary_color": "#007060",
-  "hero_image": "/media/okrueod.png"
+  "hero_image": "/media/okrueod.png",
+  "gallery_": true,
+  "gallery": [
+    "/media/Sour_Skittles.jpg",
+    "/media/Sugar_Cookies.jpg",
+    "/media/Orange_Cookies.jpg",
+    "/media/okrueod.png",
+    "/media/Animal_Mint.jpg",
+    "/media/mimosa.jpg",
+    "/media/Sterling_Creek_OG.jpg",
+    "/media/37342.jpg"
+  ]
 }
