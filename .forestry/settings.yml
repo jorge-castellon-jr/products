@@ -23,7 +23,7 @@ sections:
   label: Company Info
 upload_dir: static/media
 public_path: ''
-front_matter_path: static/media
+front_matter_path: "/media"
 use_front_matter_path: true
 file_template: ":filename:"
 build:
