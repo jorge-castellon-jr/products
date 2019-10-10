@@ -1,6 +1,6 @@
 ---
 title: Sugar Cookies
-product_image: "/Sugar_Cookies.jpg"
+product_image: "/media/Sugar_Cookies.jpg"
 prices:
 - price: 8
   unit: 1/8 oz
