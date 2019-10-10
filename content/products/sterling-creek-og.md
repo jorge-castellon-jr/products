@@ -1,6 +1,6 @@
 ---
 title: Sterling Creek OG
-product_image: "/Sterling_Creek_OG.jpg"
+product_image: "/media/Sterling_Creek_OG.jpg"
 prices:
 - price: 8
   unit: 1/8 oz
