@@ -1,6 +1,6 @@
 ---
 title: Animal Mints
-product_image: "/Animal_Mint.jpg"
+product_image: static/media/Animal_Mint.jpg
 prices:
 - price: 12
   unit: 1/4 oz
