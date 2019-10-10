@@ -2,6 +2,14 @@
 label: Home Page
 hide_body: true
 fields:
+- name: primary_color
+  type: color
+  config:
+    required: false
+    color_format: Hex
+  label: Primary Color
+  description: Choose primary color for website
+  default: "#B1BCBC"
 - name: hero_image
   type: file
   config:
@@ -22,13 +30,12 @@ fields:
     schema:
       format: html-blocks
   label: body
-- name: primary_color
-  type: color
-  config:
-    required: false
-    color_format: Hex
-  label: Primary Color
-  description: Choose primary color for website
-  default: "#B1BCBC"
+- name: gallery_
+  type: boolean
+  label: Gallery?
+- name: gallery
+  type: image_gallery
+  config: {}
+  label: Gallery
 pages:
 - content/data/home.json
