@@ -93,8 +93,12 @@ export default {
   &__gallery {
     justify-content: space-between;
     img {
-      width: calc(25% - 10px);
+      width: calc(50% - 10px);
       padding-bottom: 20px;
+      object-fit: cover;
+      @media only screen and (min-width: 768px) {
+        max-width: calc(25% - 10px);
+      }
     }
   }
 }
