@@ -9,6 +9,7 @@ prices:
   test: ''
 - price: 40
   unit: 1/2 oz
+type: Sativa
 
 ---
 This is a world of dreams and reverie  
