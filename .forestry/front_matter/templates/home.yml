@@ -37,5 +37,8 @@ fields:
   type: image_gallery
   config: {}
   label: Gallery
+  showOnly:
+    field: gallery_
+    value: true
 pages:
 - content/data/home.json
