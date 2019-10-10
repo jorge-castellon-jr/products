@@ -64,10 +64,10 @@ fields:
     labelField: unit
   label: Prices
 pages:
+- content/products/sour-skittles.md
 - content/products/orange-cookies.md
 - content/products/animal-mints.md
 - content/products/mimosa.md
 - content/products/sugar-cookies.md
 - content/products/strawberry-avalanche.md
 - content/products/sterling-creek-og.md
-- content/products/sour-skittles.md

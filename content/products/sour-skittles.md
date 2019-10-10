@@ -1,6 +1,6 @@
 ---
 title: Sour Skittles
-product_image: "/Sour_Skittles.jpg"
+product_image: "/media/Sour_Skittles.jpg"
 prices:
 - price: 8
   unit: 1/8 oz
