@@ -64,8 +64,8 @@ fields:
       path: 
   label: Type
 pages:
-- content/products/mimosa.md
 - content/products/animal-mints.md
+- content/products/mimosa.md
 - content/products/orange-cookies.md
 - content/products/sterling-creek-og.md
 - content/products/strawberry-avalanche.md
