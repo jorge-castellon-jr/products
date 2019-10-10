@@ -1,6 +1,6 @@
 ---
 title: Mimosa
-product_image: "/mimosa.jpg"
+product_image: "/media/mimosa.jpg"
 prices:
 - price: 8
   unit: 1/8 oz
