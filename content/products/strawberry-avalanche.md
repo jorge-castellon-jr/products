@@ -1,6 +1,6 @@
 ---
 title: Strawberry Avalanche
-product_image: "/37342.jpg"
+product_image: "/media/37342.jpg"
 prices:
 - price: 8
   unit: 1/8 oz
