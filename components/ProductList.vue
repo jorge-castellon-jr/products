@@ -2,9 +2,9 @@
 <b-container>
     <b-row align-h="center">
         <b-col lg="10">
-            <b-input-group prepend="Search" class="th__input-group">
+            <!-- <b-input-group prepend="Search" class="th__input-group">
                 <b-form-input v-model="query" placeholder="Enter product name here ..."></b-form-input>
-            </b-input-group>
+            </b-input-group> -->
             <b-card-group deck >
                 <transition-group 
                     name="product-list"
@@ -21,9 +21,12 @@
                         :data-index="index"
                         :title="item.attributes.title"
                         img-top
-                        :img-src="`/media${item.attributes.product_image}`"
+                        :img-src="item.attributes.product_image"
                     >
                         <nuxt-link class="th__link" :to="`/product/${formatSlug(item.attributes.title)}`"></nuxt-link>
+                        <template v-slot:footer v-if="item.attributes.type">
+                            <small class="text-muted">{{ item.attributes.type }}</small>
+                        </template>
                     </b-card>
                 </transition-group>
             </b-card-group>
@@ -127,8 +130,14 @@
                 flex: 1 1 auto;
                 object-fit: cover;
             }
+            .card-title {
+                margin: 0;
+            }
             .card-body {
                 flex: none;
+            }
+            .card-footer {
+                padding: 3px 1.25rem;
             }
 
             @media only screen and (min-width: 576px) {

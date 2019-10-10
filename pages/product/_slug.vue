@@ -4,12 +4,13 @@
     <b-container class="th__product">
         <b-row align-v="center">
             <b-col sm="12" md="6">
-                <b-img-lazy fluid-grow :src="`/media${product.attributes.product_image}`" :alt="product.attributes.title"></b-img-lazy>
+                <b-img fluid-grow :src="product.attributes.product_image" :alt="product.attributes.title"></b-img>
             </b-col>
             <b-col sm="12" md="6">
                 <h1>{{ product.attributes.title }}</h1>
+                <h6>Type: {{ product.attributes.type }}</h6>
                 <b-row v-if="product.attributes.prices">
-                    <b-col v-for="price in product.attributes.prices" :key="price">
+                    <b-col v-for="price in product.attributes.prices" :key="price.price">
                         <h4 class="th__product-price"><strong>${{ price.price }}</strong><span>({{ price.unit }})</span></h4>
                     </b-col>
                 </b-row>

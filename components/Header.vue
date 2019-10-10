@@ -40,14 +40,6 @@ export default {
       justify-content: center;
       align-items: center;
     }
-    &::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      height: 20vw;
-      width: 100%;
-      background: white;
-    }
   }
   &__brand {
     max-height: 100px;

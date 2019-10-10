@@ -46,11 +46,17 @@ export default {
   &__content {
     margin-top: 40px;
     background: #EDF0F0;
+    position: relative;
     & > * {
-      position: relative;
-      z-index: 10;
+      // position: relative;
+      // z-index: 10;
     }
   }
+}
+
+img {
+  flex-shrink: 0;
+  align-self: center;
 }
 
 .page-enter-active,

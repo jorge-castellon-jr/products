@@ -1,8 +1,8 @@
 <template>
-<b-container>
+<b-container class="th__home">
   <b-row align-h="center" class="th__hero">
     <b-col cols="12" lg="10">
-      <b-img-lazy class="th__img" :src="`/media${home.hero_image}`" fluid-grow></b-img-lazy>
+      <b-img class="th__img" :src="`${home.hero_image}`" fluid-grow></b-img>
       <b-row class="th__hero-text">
         <h1 v-html="home.cta"></h1>
         <div v-html="home.body"></div>
@@ -18,6 +18,9 @@
           <b-button variant="outline-dark" :href="`https://www.google.com/maps/search/${decodeURI( company.address )}`">Get Directions</b-button>
         </b-col>
       </b-row>
+    <b-row v-if="home.gallery_" class="th__gallery">
+      <b-img v-for="img in home.gallery" :key="img" :src="img"></b-img>
+    </b-row>
     </b-col>
   </b-row>
 </b-container>
@@ -53,8 +56,17 @@ export default {
 <style lang="scss" scoped>
 .th {
   &__hero {
-    position: relative;
+    // position: relative;
     margin-bottom: 140px;
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      height: 20vw;
+      max-height: 200px;
+      width: 100%;
+      background: white;
+    }
   }
   &__img {
     margin-bottom: 40px;
@@ -75,7 +87,14 @@ export default {
     a {
       margin: 10px;
       min-width: 150px;
-      width: 25%
+      width: 25%;
+    }
+  }
+  &__gallery {
+    justify-content: space-between;
+    img {
+      width: calc(25% - 10px);
+      padding-bottom: 20px;
     }
   }
 }
