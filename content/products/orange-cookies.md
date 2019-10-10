@@ -1,6 +1,6 @@
 ---
 title: Orange Cookies
-product_image: "/Orange_Cookies.jpg"
+product_image: "/media/Orange_Cookies.jpg"
 prices:
 - price: 8
   unit: 1/8 oz
