@@ -11,6 +11,22 @@ fields:
 - type: file
   name: product_image
   label: product_image
+- name: type
+  type: select
+  default: []
+  config:
+    required: true
+    options:
+    - Hybrid
+    - Indica
+    - Sativa
+    - Edible
+    source:
+      type: simple
+      section: 
+      file: 
+      path: 
+  label: Type
 - name: prices
   type: field_group_list
   fields:
@@ -47,22 +63,6 @@ fields:
     max: 
     labelField: unit
   label: Prices
-- name: type
-  type: select
-  default: []
-  config:
-    required: true
-    options:
-    - Hybrid
-    - Indica
-    - Sativa
-    - Edible
-    source:
-      type: simple
-      section: 
-      file: 
-      path: 
-  label: Type
 pages:
 - content/products/animal-mints.md
 - content/products/mimosa.md
