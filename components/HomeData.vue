@@ -91,6 +91,7 @@ export default {
     }
   }
   &__gallery {
+    margin-top: 40px;
     justify-content: space-between;
     img {
       width: calc(50% - 10px);

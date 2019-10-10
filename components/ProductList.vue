@@ -2,6 +2,7 @@
 <b-container>
     <b-row align-h="center">
         <b-col lg="10">
+            <h2>Products:</h2>
             <!-- <b-input-group prepend="Search" class="th__input-group">
                 <b-form-input v-model="query" placeholder="Enter product name here ..."></b-form-input>
             </b-input-group> -->
@@ -124,7 +125,7 @@
             transform-origin: left;
             float: left;
             max-width: calc(50% - 10px);
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             
             img {
                 flex: 1 1 auto;
