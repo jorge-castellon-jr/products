@@ -95,6 +95,12 @@ export default {
   &__gallery {
     margin-top: 40px;
     justify-content: space-between;
+    .card-columns {
+      columns: 2;
+      @media (min-width: 576px) {
+        columns: 3;
+      }
+    }
     .card-body {
       display: none;
     }
