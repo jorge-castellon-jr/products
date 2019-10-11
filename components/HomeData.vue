@@ -19,7 +19,9 @@
         </b-col>
       </b-row>
     <b-row v-if="home.gallery_" class="th__gallery">
-      <b-img v-for="img in home.gallery" :key="img" :src="img"></b-img>
+      <b-card-group columns>
+        <b-card v-for="img in home.gallery" :key="img" :img-src="img"></b-card>
+      </b-card-group>
     </b-row>
     </b-col>
   </b-row>
@@ -93,14 +95,17 @@ export default {
   &__gallery {
     margin-top: 40px;
     justify-content: space-between;
-    img {
-      width: calc(50% - 10px);
-      padding-bottom: 20px;
-      object-fit: cover;
-      @media only screen and (min-width: 768px) {
-        max-width: calc(25% - 10px);
-      }
+    .card-body {
+      display: none;
     }
+    // img {
+    //   width: calc(50% - 10px);
+    //   padding-bottom: 20px;
+    //   object-fit: cover;
+    //   @media only screen and (min-width: 768px) {
+    //     max-width: calc(25% - 10px);
+    //   }
+    // }
   }
 }
 

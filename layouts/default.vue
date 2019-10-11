@@ -41,16 +41,12 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .th {
   &__content {
     margin-top: 40px;
     background: #EDF0F0;
     position: relative;
-    & > * {
-      // position: relative;
-      // z-index: 10;
-    }
   }
 }
 
