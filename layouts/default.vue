@@ -2,8 +2,10 @@
   <div>
     <Header />
     <b-container fluid class="th__content">
-      <nuxt  />
-      <ProductList v-show="this.$store.state.productsShow" :products="products" />
+      <b-container>
+        <nuxt  />
+        <ProductList v-show="this.$store.state.productsShow" :products="products" />
+      </b-container>
       <Footer />
     </b-container>
     <client-only><AgePopUp /></client-only>
@@ -47,6 +49,9 @@ export default {
     margin-top: 40px;
     background: #EDF0F0;
     position: relative;
+    .container {
+      padding: 0;
+    }
   }
 }
 
@@ -57,12 +62,10 @@ img {
 
 .page-enter-active,
 .page-leave-active {
-  transition: all 1s;
+  transition: opacity .5s;
 }
 .page-enter,
 .page-leave-to {
-    transition: all .5s;
-    opacity: 0;
-    transform: translate(-500px, 0);
+  opacity: 0;
 }
 </style>

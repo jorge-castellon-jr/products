@@ -1,14 +1,12 @@
 <template>
-    <b-container fluid class="th__footer" :style="`---PrimaryColor: ${home.primary_color}`">
-        <b-row align-h="center">
-            <b-col>
-                <p><a href="https://thoriumdesign.com">Design and Developed By Thorium Design, LLC</a></p>
-            </b-col>
-            <b-col v-if="company.license">
-                <p>Licence # {{ company.license }}</p>
-            </b-col>
-        </b-row>
-    </b-container>
+    <b-row align-h="center" class="th__footer" :style="`---PrimaryColor: ${home.primary_color}`">
+        <b-col>
+            <p><a href="https://thoriumdesign.com">Design and Developed By Thorium Design, LLC</a></p>
+        </b-col>
+        <b-col v-if="company.license">
+            <p>Licence # {{ company.license }}</p>
+        </b-col>
+    </b-row>
 </template>
 
 <script>
@@ -29,8 +27,9 @@ export default {
 .th {
     &__footer {
         background: var(--PrimaryColor);
-        margin: 150px 0 0;
-        padding: 80px 0 100px;
+        margin-top: 150px;
+        padding-top: 80px;
+        padding-bottom: 100px;
 
         p,a {
             color: white;
